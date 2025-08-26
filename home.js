@@ -1,5 +1,6 @@
 const validPin = 1234;
 
+//Todo ------add money feature------
 document
   .getElementById("add-money-btn")
   .addEventListener("click", function (e) {
@@ -12,6 +13,7 @@ document
 
     const availabeBalance = parseInt(document.getElementById("availabe-balance").innerText);
 
+    //* Current information
     if(accountNumber.length <11) {
       alert("Please provide valid account number");
       return;
@@ -29,7 +31,8 @@ document
 
 
 
-  //Todo------Toggling feature------
+
+//Todo------Toggling feature------
 
   document.getElementById("add-button").addEventListener("click",function(){
     document.getElementById("cash-out-parent").style.display = "none"
@@ -42,3 +45,38 @@ document
     document.getElementById("cash-out-parent").style.display = "block"
 
   })
+
+
+
+
+//Todo ------Cashout money feature------
+  document.getElementById("withdraw-btn").addEventListener("click", function(e){
+    e.preventDefault()
+    
+    const amount = parseInt (document.getElementById("withdraw-amount").value);
+    const availabeBalance = parseInt(document.getElementById("availabe-balance").innerText);
+
+    //* Current validation information
+    const validPin = 1234;
+    const agentNumber = document.getElementById("agent-number").value.trim(); // ফাঁকা স্পেস বাদ
+    const pin = parseInt(document.getElementById("withdraw-pin").value);
+    
+    if(agentNumber.length !== 11 || isNaN(agentNumber)) {
+      alert("Please provide valid 11 digit account number");
+      return;
+    }
+
+    if(pin !== validPin ){
+      alert("Please provide valid 4 Dugit Pin number")
+      return;
+    }
+
+    if(amount > availabeBalance){
+    alert("Not enough balance to withdraw");
+    return;
+  }
+
+    const totalNewAvaiableBalance = availabeBalance - amount;
+
+    document.getElementById("availabe-balance").innerText = totalNewAvaiableBalance;
+})
