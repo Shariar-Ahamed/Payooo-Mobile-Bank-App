@@ -1,6 +1,7 @@
-//* login button functionality
-document.getElementById("loginButton")
-.addEventListener("click", function(e){
+//Note login button functionality
+
+ document.getElementById("loginButton")
+    .addEventListener("click", function(e){
     e.preventDefault()
     const mobileNumber = 12345678912;
     const pinNumber = 1234;
@@ -18,4 +19,5 @@ document.getElementById("loginButton")
     else{
         alert("Invalid credentials");
     }
-}) 
+ }) 
+

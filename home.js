@@ -103,3 +103,21 @@ document
     // document.getElementById("availabe-balance").innerText = totalNewAvaiableBalance;
     setInnerText(totalNewAvaiableBalance);
 })
+
+
+
+
+//* Logout button functionality
+document.addEventListener("DOMContentLoaded", function() {
+  const logoutBtn = document.getElementById("logout");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function() {
+     /* //Confirm before logout (optional)
+      const confirmLogout = confirm("Are you sure you want to logout?");
+      if(confirmLogout){
+  
+      } */
+      window.location.href = "index.html";
+    });
+  }
+});
